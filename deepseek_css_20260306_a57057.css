@@ -1,0 +1,130 @@
+.trade-bubbles-container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trade-bubbles-container h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.bubbles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 400px;
+  align-content: flex-start;
+  flex: 1;
+}
+
+.trade-bubble {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  animation: popIn 0.3s ease-out;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+.trade-bubble:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.trade-bubble:hover .bubble-tooltip {
+  display: block;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.bubble-icon {
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.bubble-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.95);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  min-width: 250px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.bubble-tooltip p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.bubble-tooltip p:first-child {
+  margin-top: 0;
+}
+
+.bubble-tooltip p:last-child {
+  margin-bottom: 0;
+}
+
+.bubble-tooltip small {
+  color: #aaa;
+  font-style: italic;
+}
+
+.no-trades {
+  text-align: center;
+  color: #999;
+  padding: 60px 20px;
+  width: 100%;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 15px;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
